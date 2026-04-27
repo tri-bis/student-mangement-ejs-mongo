@@ -35,7 +35,15 @@ app.post('/add-student', async (req, res) => {
         res.status(400).send("Error saving student: " );
     }
 });
-
+app.get('/delete-student/:id', async (req, res) => {
+    try {
+        const studentId = req.params.id; // Get the ID from the URL
+        await Student.findByIdAndDelete(studentId); // Remove from MongoDB
+        res.redirect('/'); // Refresh the page to show the updated list
+    } catch (err) {
+        res.status(500).send("Error deleting student record.");
+    }
+});
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);

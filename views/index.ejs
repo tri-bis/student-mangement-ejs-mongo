@@ -14,7 +14,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Course</th>
-            </tr>
+                <th>Action</th> </tr>
         </thead>
         <tbody>
             <% if(students.length > 0) { %>
@@ -23,12 +23,18 @@
                         <td><%= student.name %></td>
                         <td><%= student.email %></td>
                         <td><%= student.course %></td>
+                        <td>
+                            <a href="/delete-student/<%= student._id %>" 
+                               style="color: red;"
+                               onclick="return confirm('Are you sure?')">
+                               Delete
+                            </a>
+                        </td>
                     </tr>
                 <% }) %>
             <% } else { %>
                 <tr>
-                    <td colspan="3">No records found.</td>
-                </tr>
+                    <td colspan="4">No records found.</td> </tr>
             <% } %>
         </tbody>
     </table>
