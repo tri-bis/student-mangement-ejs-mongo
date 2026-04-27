@@ -37,9 +37,9 @@ app.post('/add-student', async (req, res) => {
 });
 app.get('/delete-student/:id', async (req, res) => {
     try {
-        const studentId = req.params.id; // Get the ID from the URL
-        await Student.findByIdAndDelete(studentId); // Remove from MongoDB
-        res.redirect('/'); // Refresh the page to show the updated list
+        const studentId = req.params.id; 
+        await Student.findByIdAndDelete(studentId);
+        res.redirect('/'); 
     } catch (err) {
         res.status(500).send("Error deleting student record.");
     }
