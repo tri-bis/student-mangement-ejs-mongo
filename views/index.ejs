@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+<body>
+    <h1>Registered Students</h1>
+    <a href="/add"><button>Add New Student</button></a>
+    <hr>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(students.length > 0) { %>
+                <% students.forEach(student => { %>
+                    <tr>
+                        <td><%= student.name %></td>
+                        <td><%= student.email %></td>
+                        <td><%= student.course %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">No records found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
